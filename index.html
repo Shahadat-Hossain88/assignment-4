@@ -13,7 +13,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+
 </head>
 
 <body>
@@ -31,75 +31,98 @@
 
     <!--Booking Section-->
     <main class="main-content container">
-        <div class="booking-form">
-            <h3>Booking Flights</h3>
-            <div class="input-group">
-                <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhaka, Bangladesh">
-            </div>
-            <div class="input-group">
-                <label for="">Flying To</label>
-                <input class="inp-style" type="text" name="" placeholder="New York, United States">
-            </div>
-            <div class="inputs">
+        <div class="booking-form ">
+            <div>
+                <h3>Booking Flights</h3>
                 <div class="input-group">
-                    <label" for="">Departure</label>
-                        <input class="inp-style" type="date" name="">
+                    <label for="">Flying From</label>
+                    <input class="inp-style  input-style" type="text" name="" placeholder="Dhaka, Bangladesh">
                 </div>
                 <div class="input-group">
-                    <label for="">Return</label>
-                    <input class="inp-style" type="date" name="">
+                    <label for="">Flying To</label>
+                    <input class="inp-style input-style" type="text" name="" placeholder="New York, United States">
                 </div>
-            </div>
-            <div class="input-group f-class">
-                <label for="">First Class ($150)</label>
-                <div class="row">
-                    <div class="col-md-3 center-item">
-                        <button onclick="ticketBooking('firstclass',false)" class="btn btn-default"><i
-                                class="fas fa-minus"></i></button>
+                <div class="inputs">
+                    <div class="input-group">
+                        <div>
+                            <label" for="">Departure</label>
+                        </div>
+                        <div class="date-style">
+                            <input class="input-style " type="text" placeholder="13/04/2021">
+                        </div>
                     </div>
-                    <div class="col-md-6 center-item">
-                        <input id="firstclass-ticket-count" class="inp-style inp-width" type="number" name="" value="0">
-                    </div>
-                    <div class="col-md-3 center-item">
-                        <button onclick="ticketBooking('firstclass',true)" class="btn btn-default "><i
-                                class="fas fa-plus"></i>
-                        </button>
+                    <div class="input-group">
+                        <div>
+                            <label for="">Return</label>
+                        </div>
+                        <div class="date-style">
+                            <input class="input-style " type="text" placeholder="15/12/2021">
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="input-group f-class">
-                <label for="">Economy ($100)</label>
-                <div class="row">
-                    <div class="col-md-3 center-item">
-                        <button onclick="ticketBooking('economy',false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
+            <!-- Given date area -->
+            <div id="book-area">
+                <!-- ticket booking -->
+                <div class="input-group f-class">
+                    <label for="">First Class ($150)</label>
+                    <div class="row minus-row">
+                        <div class="col-md-3  center-item">
+                            <button onclick="ticketBooking('firstclass',false)"
+                                class="btn btn-default plus-miuns-margin input-style"><i
+                                    class="fas fa-minus"></i></button>
+                        </div>
+                        <div class="col-md-6 center-item">
+                            <input id="firstclass-ticket-count" class="inp-style  input-style inp-width" type="text"
+                                value="0">
+                        </div>
+                        <div class="col-md-3 center-item">
+                            <button onclick="ticketBooking('firstclass',true)"
+                                class="btn btn-default input-style plus-miuns-margin"><i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
-                    <div class="col-md-6 center-item">
-                        <input id="economy-ticket-count" class="inp-style inp-width" type="number" name="" value="0">
-                    </div>
-                    <div class="col-md-3 center-item">
-                        <button onclick="ticketBooking('economy',true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                </div>
+
+                <div class="input-group f-class">
+                    <label for="">Economy ($100)</label>
+                    <div class="row minus-row">
+                        <div class="col-md-3 center-item">
+                            <button onclick="ticketBooking('economy',false)"
+                                class="btn btn-default input-style plus-miuns-margin"><i
+                                    class="fas fa-minus"></i></button>
+                        </div>
+                        <div class="col-md-6 center-item">
+                            <input id="economy-ticket-count" class="inp-style  input-style inp-width" type="text"
+                                value="0">
+                        </div>
+                        <div class="col-md-3 center-item">
+                            <button onclick="ticketBooking('economy',true)"
+                                class="btn btn-default input-style plus-miuns-margin"><i
+                                    class="fas fa-plus"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!--  total calculation  -->
             <div class="calculations">
                 <div class="amount">
                     <div class="left">
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p id="total-amount">$500</p>
+                        <p id="total-amount">$0</p>
                     </div>
                 </div>
 
                 <div class="amount">
                     <div class="left">
-                        <p >Charge 10% VAT</p>
+                        <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p id="vat">$50</p>
+                        <p id="vat">$0</p>
                     </div>
                 </div>
                 <hr>
@@ -108,13 +131,15 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p id="total-cost">$550</p>
+                        <p id="total-cost">$0</p>
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <div id="book-btn-area">
+                <button id="book-now" class="btn-style">Book Now</button>
+            </div>
         </div>
-
+        <!-- other -->
         <div class="booking-content">
             <h1>discover <br> around the world</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias
@@ -123,6 +148,7 @@
         </div>
         </section>
 
+        <script src="script.js"></script>
         <!--Thank You-->
 </body>
 
